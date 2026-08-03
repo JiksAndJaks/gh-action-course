@@ -1,0 +1,13 @@
+name: 05-2-Filters Activity Types
+on:
+    pull_request:
+        types:
+            - closed
+        branches:
+            - main
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo
+              run: echo "This workflow runs on pull request events with type closed and branch is main."
