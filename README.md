@@ -1,2 +1,2 @@
 # gh-action-course
-Repository for GitHub Actions Course hrllo
+Repository for GitHub Actions Course hello
