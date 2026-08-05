@@ -12,7 +12,7 @@ env:
     MY_WORKFLOW_VAR: "workflow"
     MY_OVERWRITTEN_VAR: "workflow"
 jobs:
-    echo:
+    echo-data:
         runs-on: ubuntu-latest
         env:
             MY_JOB_VAR: "job"
@@ -38,9 +38,16 @@ jobs:
               run: |
                   echo "Workflow Environment Variable WORKFLOW: ${{ env.MY_WORKFLOW_VAR }}"
                   echo "Workflow Environment Variable JOB : ${{ env.MY_JOB_VAR }}"
-                  echo "Workflow Environment Variable: ${{ env.MY_OVERWRITTEN_VAR}}"
+                  echo "Workflow Environment Variable Overwrite: ${{ env.MY_OVERWRITTEN_VAR}}"
             - name: Print Environment Variable
               run: |
                   echo "Workflow Environment Variable WORKFLOW: ${{ env.MY_WORKFLOW_VAR }}"
                   echo "Workflow Environment Variable JOB : ${{ env.MY_JOB_VAR }}"
-                  echo "Workflow Environment Variable: ${{ env.MY_OVERWRITTEN_VAR}}"
+                  echo "Workflow Environment Variable Overwrite: ${{ env.MY_OVERWRITTEN_VAR}}"
+    echo-data1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Environment Variable in another Job
+              run: |
+                  echo "Workflow Environment Variable WORKFLOW: $MY_WORKFLOW_VAR"
+                  echo "Workflow Environment Variable Overwrite: $MY_OVERWRITTEN_VAR"
