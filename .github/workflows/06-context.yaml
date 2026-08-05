@@ -32,9 +32,14 @@ jobs:
             - name: Retrieve Variable
               run: |
                   echo "Variable Value: ${{ vars.MY_VAR }}"
-            - name: Print Environment Variable
+            - name: Print Environment Variable With Override
               env:
                   MY_OVERWRITTEN_VAR: "step"
+              run: |
+                  echo "Workflow Environment Variable WORKFLOW: ${{ env.MY_WORKFLOW_VAR }}"
+                  echo "Workflow Environment Variable JOB : ${{ env.MY_JOB_VAR }}"
+                  echo "Workflow Environment Variable: ${{ env.MY_OVERWRITTEN_VAR}}"
+            - name: Print Environment Variable
               run: |
                   echo "Workflow Environment Variable WORKFLOW: ${{ env.MY_WORKFLOW_VAR }}"
                   echo "Workflow Environment Variable JOB : ${{ env.MY_JOB_VAR }}"
